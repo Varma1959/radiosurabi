@@ -1,7 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hygge from "./components/Header";
-
+import React from "react";
+import HeroSlider from "./components/HeroSlider";
+import Navbar from "./components/Header";
+import SliderButton from "./components/SliderButton";
 function App() {
-  return <Hygge />;
+  return (
+    <>
+      <Navbar />
+      <HeroSlider />
+      {/* ...other sections... */}
+    </>
+  );
 }
+
 export default App;

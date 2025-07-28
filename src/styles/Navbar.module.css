@@ -1,0 +1,92 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+}
+.navbarContent {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 32px;
+  height: 80px;
+}
+.logoLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.logoLight {
+  display: block;
+  height: 38px;
+}
+.logoDark {
+  display: none; /* Switch based on theme */
+  height: 38px;
+}
+.menuBtn {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.menuBtn span {
+  width: 100%;
+  height: 4px;
+  background: #45be84;
+  display: block;
+  border-radius: 2px;
+  margin: 8px 0;
+}
+.navMenu {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+.navMenu li {
+  margin: 0;
+}
+.navMenu a {
+  color: #b5b5b5;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.navMenu li.active a,
+.navMenu a:hover {
+  color: #fff;
+  border-bottom: 2px solid #45be84;
+}
+
+@media (max-width: 900px) {
+  .navMenu {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+  .navMenu.open {
+    display: flex;
+  }
+  .menuBtn {
+    display: block;
+    margin-left: 20px;
+  }
+}

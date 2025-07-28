@@ -1,88 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import styles from "../styles/Navbar.module.css";
+import logo from "../images/logo.png";
+import logoDark from "../images/logo-dark.png";
 
-const Hygge = () => (
-  <div className="body-wrapper">
-    <nav className="navbar navbar-default default">
-      <div className="container">
-        <div className="navbar-header">
-          <div className="basic-wrapper">
-            <a
-              className="btn responsive-menu"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-            >
-              <i></i>
-            </a>
-            <div className="navbar-brand">
-              <a href="index.html">
-                <img
-                  src="#"
-                  srcSet="style/images/logo.png 1x, style/images/logo@2x.png 2x"
-                  className="logo-light"
-                  alt=""
-                />
-                <img
-                  src="#"
-                  srcSet="style/images/logo-dark.png 1x, style/images/logo-dark@2x.png 2x"
-                  className="logo-dark"
-                  alt=""
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="collapse navbar-collapse">
-          <ul className="nav navbar-nav">
-            {/* Dropdown menus here */}
-            {/* ... (copy your nav code from above and replace all class with className, etc.) */}
-          </ul>
-        </div>
+const NAV_ITEMS = [
+  { name: "Home", link: "#" },
+  { name: "Sliders", link: "#" },
+  { name: "Headers", link: "#", active: true },
+  { name: "Portfolio", link: "#" },
+  { name: "Blog", link: "#" },
+  { name: "Pages", link: "#" },
+  { name: "Features", link: "#" },
+];
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <>
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContent}>
+        <a href="#" className={styles.logoLink}>
+          <img src={logo} alt="Logo" className={styles.logoLight} />
+          <img src={logoDark} alt="Logo dark" className={styles.logoDark} />
+        </a>
+        <button
+          className={styles.menuBtn}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span />
+        </button>
+        <ul
+          className={`${styles.navMenu} ${menuOpen ? styles.open : ""}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          {NAV_ITEMS.map((item) => (
+            <li key={item.name} className={item.active ? styles.active : ""}>
+              <a href={item.link}>{item.name}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
 
-    {/* Preloader */}
-    <div id="preloader">
-      <div id="status">
-        <div className="spinner"></div>
-      </div>
-    </div>
-
-    {/* Main Content Sections... */}
-    {/* You can continue to paste your sections here, applying the same conversions as above: 
-        - class => className
-        - style="..." => style={{ ... }}
-        - Self close <img .../> and <input .../>
-        - Remove or convert comments
-    */}
-
-    {/* Example: Video Section */}
-    <div className="outer-wrap inverse-wrapper">
-      <div id="video-wrap" className="video-wrap">
-        <video preload="metadata" autoPlay loop id="video-office">
-          <source src="style/video/office.mp4" type="video/mp4" />
-          <source src="style/video/office.webm" type="video/webm" />
-        </video>
-        <div className="content-overlay container">
-          <div className="headline text-center">
-            <h2>Video Parallax</h2>
-            <p className="lead"> For better visualization of your company </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* ...Your other sections, laid out exactly as in your HTML, but as JSX, following above changes ... */}
-
-    {/* Footer */}
-    <footer className="inverse-wrapper">
-      <div className="container inner">{/* ...rest of your footer... */}</div>
-    </footer>
-
-    {/* External scripts: 
-        If you need to include external JS as in your HTML, add them in public/index.html
-        or load them with useEffect (for advanced usage), e.g. for plugins, libraries. 
-    */}
-  </div>
-);
-
-export default Hygge;
+    
+</>
+    
+  );
+}

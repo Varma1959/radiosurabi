@@ -67,7 +67,8 @@ const customStyles = `
 
   .dropdown-menu a:hover {
     background-color: #333;
-    color: red;
+     font-family: 'Montserrat';
+    color: white;
   }
 `;
 

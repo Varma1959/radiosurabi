@@ -85,7 +85,7 @@ const Navbar = ({ navigateTo }) => {
           <a
             className="navbar-brand fw-bold fs-3"
             href="#"
-            style={{ letterSpacing: "2px" }}
+            style={{ letterSpacing: "2px", color: "white" }}
             onClick={() => handleNavClick("home")}
           >
             HYGGE

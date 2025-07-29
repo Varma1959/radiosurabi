@@ -13,37 +13,36 @@ const NAV_ITEMS = [
   { name: "Features", link: "#" },
 ];
 
-export default function Navbar() {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-    <nav className={styles.navbar}>
-      <div className={styles.navbarContent}>
-        <a href="#" className={styles.logoLink}>
-          <img src={logo} alt="Logo" className={styles.logoLight} />
-          <img src={logoDark} alt="Logo dark" className={styles.logoDark} />
-        </a>
-        <button
-          className={styles.menuBtn}
-          onClick={() => setMenuOpen((o) => !o)}
-        >
-          <span />
-        </button>
-        <ul
-          className={`${styles.navMenu} ${menuOpen ? styles.open : ""}`}
-          onClick={() => setMenuOpen(false)}
-        >
-          {NAV_ITEMS.map((item) => (
-            <li key={item.name} className={item.active ? styles.active : ""}>
-              <a href={item.link}>{item.name}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
-
-    
-</>
-    
+      <nav className={styles.navbar}>
+        <div className={styles.navbarContent}>
+          <a href="#" className={styles.logoLink}>
+            <img src={logo} alt="Logo" className={styles.logoLight} />
+            <img src={logoDark} alt="Logo dark" className={styles.logoDark} />
+          </a>
+          <button
+            className={styles.menuBtn}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <span />
+          </button>
+          <ul
+            className={`${styles.navMenu} ${menuOpen ? styles.open : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            {NAV_ITEMS.map((item) => (
+              <li key={item.name} className={item.active ? styles.active : ""}>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
   );
-}
+};
+
+export default Navbar;

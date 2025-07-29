@@ -28,7 +28,7 @@ const slides = [
   },
 ];
 
-export default function HeroSlider() {
+const HeroSlider =()=> {
   const [current, setCurrent] = useState(0);
   useEffect(() => {
     const timer = setTimeout(
@@ -74,3 +74,4 @@ export default function HeroSlider() {
     </section>
   );
 }
+export default HeroSlider;

@@ -77,6 +77,16 @@ const Navbar = ({ navigateTo }) => {
     navigateTo(key);
   };
 
+  const navItems = {
+    home: ["Home layout1"],
+    sliders: ["Fullscreen Slider", "Carousel Slider", "Split Slider"],
+    headers: ["Classic Header", "Center Logo", "Overlay Header"],
+    portfolio: ["Masonry Layout", "Grid Layout", "Fullwidth Layout"],
+    blog: ["Blog List", "Blog Grid", "Blog Single"],
+    pages: ["About Us", "Contact", "FAQ"],
+    features: ["Animations", "Icons", "Typography"],
+  };
+
   return (
     <>
       <style>{customStyles}</style>
@@ -103,15 +113,7 @@ const Navbar = ({ navigateTo }) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ms-auto align-items-center">
-              {[
-                "home",
-                "sliders",
-                "headers",
-                "portfolio",
-                "blog",
-                "pages",
-                "features",
-              ].map((key) => (
+              {Object.entries(navItems).map(([key, submenu]) => (
                 <li className="nav-item dropdown-hover" key={key}>
                   <a
                     className="nav-link px-3"
@@ -120,17 +122,26 @@ const Navbar = ({ navigateTo }) => {
                   >
                     {key.toUpperCase()}
                   </a>
-                  <div className="dropdown-menu">
-                    <a href="#" onClick={() => navigateTo(`${key}-option-1`)}>
-                      {key.toUpperCase()} OPTION 1
-                    </a>
-                    <a href="#" onClick={() => navigateTo(`${key}-option-2`)}>
-                      {key.toUpperCase()} OPTION 2
-                    </a>
-                    <a href="#" onClick={() => navigateTo(`${key}-option-3`)}>
-                      {key.toUpperCase()} OPTION 3
-                    </a>
-                  </div>
+
+                  {submenu.length > 0 && (
+                    <div className="dropdown-menu">
+                      {submenu.map((item, idx) => (
+                        <a
+                          key={idx}
+                          href="#"
+                          onClick={() =>
+                            navigateTo(
+                              `${key}-${item
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`
+                            )
+                          }
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

@@ -5,8 +5,14 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Hygge />
-      <Footer />
+      <div className="body-wrapper">
+        <Hygge />
+
+        <main style={{ minHeight: "70vh" }}>
+          {/* Your page content goes here */}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Hygge = () => (
-  <div className="body-wrapper">
+
     <nav className="navbar navbar-default default">
       <div className="container">
         <div className="navbar-header">
@@ -106,7 +106,7 @@ const Hygge = () => (
       </div>
       {/* /.container */}
     </nav>
-  </div>
+  
 );
 
 export default Hygge;
